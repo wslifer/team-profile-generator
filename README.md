@@ -6,6 +6,8 @@
 
 This app allows a user to organize a team by adding members from each field of work.
 
+[Video Link](https://drive.google.com/file/d/18gA6ISAoiyxPe_O-hkoqC53sdPB-qQf5/view)
+
 ## Table of Contents
 
 - [Installation](##Installation)
@@ -39,3 +41,4 @@ The app contains test files to test if they are working using jest.
 
 <img src="https://avatars.githubusercontent.com/wslifer" style="width: 45px; height: 45px; border-radius:100%;">
 Email: wesleyslifer@ymail.com
+GithubUsername: wslifer
