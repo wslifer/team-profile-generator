@@ -27,17 +27,17 @@ function newEmpl() {
     .this((res) => {
       switch (res.role) {
         case "Intern":
-          return hireIntern();
+          return addIntern();
         case "Engineer":
-          return hireEngineer();
+          return addEngineer();
         case "Manager":
-          return hireManager();
+          return addManager();
         default:
           break;
       }
     });
 }
-function hireIntern() {
+function addIntern() {
   return inquirer
     .prompt([
       {
@@ -63,6 +63,35 @@ function hireIntern() {
     ])
     .then((res) => {
       employee = new Intern(res.name, res.id, res.email, res.school);
+      emplArray.push(employee);
+    });
+}
+function addEngineer() {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is the engineer's name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the engineer's ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the engineer's email?",
+      },
+      {
+        type: "input",
+        name: "github",
+        message: "What is the engineer's github username?",
+      },
+    ])
+    .then((res) => {
+      employee = new Engineer(res.name, res.id, res.email, res.github);
       emplArray.push(employee);
     });
 }
