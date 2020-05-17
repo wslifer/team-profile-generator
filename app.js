@@ -24,7 +24,7 @@ function newEmpl() {
         choices: ["Intern", "Engineer", "Manager"],
       },
     ])
-    .this((res) => {
+    .then((res) => {
       switch (res.role) {
         case "Intern":
           return addIntern();
@@ -155,7 +155,7 @@ async function assembleTeam() {
 const html = render(emplArray);
 
 if (!fs.existsSync(OUTPUT_DIR)) {
-  fs.mkdir(OUTPUT_DIR);
+  fs.mkdirSync(OUTPUT_DIR);
 }
 
 fs.writeFile(outputPath, html, (err) => {
