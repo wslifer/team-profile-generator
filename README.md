@@ -40,5 +40,7 @@ The app contains test files to test if they are working using jest.
 ## Contact
 
 <img src="https://avatars.githubusercontent.com/wslifer" style="width: 45px; height: 45px; border-radius:100%;">
+
 Email: wesleyslifer@ymail.com
-GithubUsername: wslifer
+
+GithubUsername: [wslifer](https://github.com/wslifer)
