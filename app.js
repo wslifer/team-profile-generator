@@ -37,6 +37,35 @@ function newEmpl() {
       }
     });
 }
+function hireIntern() {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "What is the intern's name?",
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "What is the intern's ID?",
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "What is the intern's email?",
+      },
+      {
+        type: "input",
+        name: "schoool",
+        message: "What school is the intern from?",
+      },
+    ])
+    .then((res) => {
+      employee = new Intern(res.name, res.id, res.email, res.school);
+      emplArray.push(employee);
+    });
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
