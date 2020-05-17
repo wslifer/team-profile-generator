@@ -151,3 +151,16 @@ async function assembleTeam() {
     }
   }
 }
+
+const html = render(emplArray);
+
+if (!fs.existsSync(OUTPUT_DIR)) {
+  fs.mkdir(OUTPUT_DIR);
+}
+
+fs.writeFile(outputPath, html, (err) => {
+  if (err) throw err;
+  console.log("Successfully created team");
+});
+
+assembleTeam();
