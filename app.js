@@ -10,11 +10,11 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-let emplArray = [];
+let employeeArray = [];
 let firstEmpl = true;
 let createTeam = true;
 
-function newEmpl() {
+function newEmployee() {
   return inquirer
     .prompt([
       {
@@ -63,7 +63,7 @@ function addIntern() {
     ])
     .then((res) => {
       employee = new Intern(res.name, res.id, res.email, res.school);
-      emplArray.push(employee);
+      employeeArray.push(employee);
     });
 }
 function addEngineer() {
@@ -92,7 +92,7 @@ function addEngineer() {
     ])
     .then((res) => {
       employee = new Engineer(res.name, res.id, res.email, res.github);
-      emplArray.push(employee);
+      employeeArray.push(employee);
     });
 }
 function addManager() {
@@ -121,7 +121,7 @@ function addManager() {
     ])
     .then((res) => {
       employee = new Manager(res.name, res.id, res.email, res.office);
-      emplArray.push(employee);
+      employeeArray.push(employee);
     });
 }
 
@@ -143,24 +143,23 @@ async function assembleTeam() {
         ])
         .then(async function (res) {
           if (res.newMember === "yes") {
-            await newEmpl();
+            await newEmployee();
           } else {
             createTeam = false;
           }
         });
     }
   }
+  const html = render(employeeArray);
+
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR);
+  }
+
+  fs.writeFile(outputPath, html, (err) => {
+    if (err) throw err;
+    console.log("Successfully created team");
+  });
 }
-
-const html = render(emplArray);
-
-if (!fs.existsSync(OUTPUT_DIR)) {
-  fs.mkdirSync(OUTPUT_DIR);
-}
-
-fs.writeFile(outputPath, html, (err) => {
-  if (err) throw err;
-  console.log("Successfully created team");
-});
 
 assembleTeam();
