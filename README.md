@@ -43,4 +43,4 @@ The app contains test files to test if they are working using jest.
 
 Email: wesleyslifer@ymail.com
 
-GithubUsername: [wslifer](https://github.com/wslifer)
+Github Username: [wslifer](https://github.com/wslifer)
